@@ -1,21 +1,25 @@
 import requests, json, csv, time, os
 import pandas as pd
 
-#Prisma Cloud Access Keys
-accessKey = ""
-secretKey = ""
+#Get Access keys from environment variables PC_ACCESS_KEY and PC_SECRET_KEY
+accessKey = os.environ.get("PC_ACCESS_KEY")
+secretKey = os.environ.get("PC_SECRET_KEY")
+
+#Hard-code Prisma Cloud Access Keys *NOT RECOMMENDED*
+#accessKey = ""
+#secretKey = ""
 
 #Specify correct API address
 apiUrl = "https://api3.prismacloud.io/audit/redlock"
+#Specify login URL for PrismaCloud
+loginUrl = "https://api3.prismacloud.io/login"
 
 #Time unit for audit logs https://api.docs.prismacloud.io/reference#rl-audit-logs
 timeUnit = "day"
 #Amount of time unit
 timeAmount = "120"
 
-#Enter correct URL for tenant
-loginUrl = "https://api3.prismacloud.io/login"
-
+#Set login payload
 loginPayload = '{"username" : "' + accessKey + '", "password" : "' + secretKey + '"}'
 
 headers = {
@@ -27,11 +31,10 @@ headers = {
 loginResponse = requests.request("POST", loginUrl, data=loginPayload, headers=headers)
 jsonResponse = loginResponse.json()
 
-#Extract token from json
+#Extract token from JSON
 token = jsonResponse['token']
 
 #Pull audit logs
-
 querystring = {"timeType":"relative","timeAmount": timeAmount,"timeUnit": timeUnit}
 
 headers = {'accept': "application/json; charset=UTF-8",'x-redlock-auth': token}
@@ -39,6 +42,7 @@ headers = {'accept': "application/json; charset=UTF-8",'x-redlock-auth': token}
 auditLogs = requests.request("GET", apiUrl, headers=headers, params=querystring)
 
 timestr = time.strftime("%Y%m%d-%H%M%S")
+
 #Output to file
 f = open(timestr + '.txt', "w")
 f.write(auditLogs.text)
