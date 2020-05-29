@@ -1,5 +1,5 @@
 # audit-puller
-Pulls Audit Logs from Prisma Cloud
+Pulls Audit Logs from Prisma Cloud and outputs them to CSV
 
 <b>Requirements and Dependencies</b>
 
