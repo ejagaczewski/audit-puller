@@ -5,7 +5,7 @@ import pandas as pd
 accessKey = os.environ.get("PC_ACCESS_KEY")
 secretKey = os.environ.get("PC_SECRET_KEY")
 
-#Hard-code Prisma Cloud Access Keys *NOT RECOMMENDED*
+#Hardcode Prisma Cloud Access Keys *NOT RECOMMENDED*
 #accessKey = ""
 #secretKey = ""
 
