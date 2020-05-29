@@ -11,4 +11,5 @@ Requires Pandas
 
 <b>Config</b>
 
+Create folder called logs in the directory that you run the script
 Fill in the variable for accessKey/secretKey and make sure that both the logon url and API url are the same as your tenant.
