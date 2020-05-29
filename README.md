@@ -11,4 +11,4 @@ Requires Panda
 
 <b>Config</b>
 
-Fill in the variable for accessKey/secretKey and make sure that both the logon url and API url are correct.
+Fill in the variable for accessKey/secretKey and make sure that both the logon url and API url are the same as your tenant.
