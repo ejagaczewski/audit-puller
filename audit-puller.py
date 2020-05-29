@@ -33,7 +33,6 @@ token = jsonResponse['token']
 
 #Pull audit logs
 
-
 querystring = {"timeType":"relative","timeAmount": timeAmount,"timeUnit": timeUnit}
 
 headers = {'accept': "application/json; charset=UTF-8",'x-redlock-auth': token}
@@ -41,8 +40,6 @@ headers = {'accept': "application/json; charset=UTF-8",'x-redlock-auth': token}
 auditLogs = requests.request("GET", apiUrl, headers=headers, params=querystring)
 
 timestr = time.strftime("%Y%m%d-%H%M%S")
-print(timestr)
-
 #Output to file
 f = open(timestr + '.txt', "w")
 f.write(auditLogs.text)
