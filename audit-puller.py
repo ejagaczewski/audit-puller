@@ -1,7 +1,6 @@
 import requests, json, csv, time, os
 import pandas as pd
 
-
 #Prisma Cloud Access Keys
 accessKey = ""
 secretKey = ""
