@@ -25,7 +25,7 @@ headers = {
     }
 
 #Get JWT Token for login
-loginResponse = requests.request("POST", loginUrl, data=loginPayload, headers=headers, verify=False)
+loginResponse = requests.request("POST", loginUrl, data=loginPayload, headers=headers)
 jsonResponse = loginResponse.json()
 
 #Extract token from json
@@ -38,7 +38,7 @@ querystring = {"timeType":"relative","timeAmount": timeAmount,"timeUnit": timeUn
 
 headers = {'accept': "application/json; charset=UTF-8",'x-redlock-auth': token}
 
-auditLogs = requests.request("GET", apiUrl, headers=headers, params=querystring, verify=False)
+auditLogs = requests.request("GET", apiUrl, headers=headers, params=querystring)
 
 timestr = time.strftime("%Y%m%d-%H%M%S")
 print(timestr)
