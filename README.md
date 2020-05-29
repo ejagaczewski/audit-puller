@@ -5,9 +5,9 @@ Pulls Audit Logs from Prisma Cloud
 
 Python 3.X
 
-Requires Panda
+Requires Pandas
 
-<code> sudo pip install panda </code>
+<code> sudo pip install pandas </code>
 
 <b>Config</b>
 
