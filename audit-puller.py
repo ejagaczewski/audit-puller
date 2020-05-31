@@ -7,8 +7,8 @@ accessKey = os.environ.get("PC_ACCESS_KEY")
 secretKey = os.environ.get("PC_SECRET_KEY")
 
 #Hard-code Prisma Cloud Access Keys *NOT RECOMMENDED*
-accessKey = ""
-secretKey = ""
+#accessKey = ""
+#secretKey = ""
 
 #Bucket for optional S3 upload
 #bucketName = ""
@@ -47,7 +47,6 @@ headers = {'accept': "application/json; charset=UTF-8",'x-redlock-auth': token}
 auditLogs = requests.request("GET", apiUrl, headers=headers, params=querystring, verify=False)
 
 timestr = time.strftime("%Y%m%d-%H%M%S")
-print(timestr)
 
 #Output to file
 f = open(timestr + '.txt', "w")
